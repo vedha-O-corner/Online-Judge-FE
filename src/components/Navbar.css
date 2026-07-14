@@ -1,0 +1,20 @@
+.navbar{
+    height:60px;
+    background:#1f2937;
+    color:white;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    padding:0 25px;
+}
+
+.navbar-logo{
+    font-size:22px;
+    font-weight:bold;
+}
+
+.navbar-user{
+    font-size:16px;
+}
