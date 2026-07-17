@@ -1,0 +1,98 @@
+.run-console {
+
+    margin-top: 20px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 20px;
+
+}
+
+.console-section {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 8px;
+
+}
+
+.console-section label {
+
+    font-weight: 600;
+
+}
+
+.status-card {
+
+    background: var(--surface);
+
+    border: 1px solid var(--border);
+
+    border-radius: 10px;
+
+    padding: 14px 18px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+}
+
+.console-output,
+.console-error {
+
+    background: #111;
+
+    border: 1px solid var(--border);
+
+    border-radius: 10px;
+
+    min-height: 120px;
+
+    padding: 15px;
+
+    overflow: auto;
+
+    white-space: pre-wrap;
+
+    font-family: monospace;
+
+}
+
+.console-output {
+
+    color: #00ff7f;
+
+}
+
+.console-error {
+
+    color: #ff6b6b;
+
+}
+
+textarea {
+
+    background: var(--surface);
+
+    border: 1px solid var(--border);
+
+    border-radius: 10px;
+
+    color: var(--text-primary);
+
+    padding: 12px;
+
+    resize: vertical;
+
+    min-height: 120px;
+
+    font-family: monospace;
+
+}

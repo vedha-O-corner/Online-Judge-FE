@@ -1,0 +1,133 @@
+.sidebar {
+
+    width: 260px;
+
+    background: var(--surface);
+
+    border-right: 1px solid var(--border);
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: space-between;
+
+    height: 100vh;
+
+    padding: 22px;
+
+    position: fixed;
+
+    left: 0;
+
+    top: 0;
+
+}
+
+.logo {
+
+    color: var(--primary);
+
+    font-size: 32px;
+
+    font-weight: 700;
+
+    margin-bottom: 45px;
+
+}
+
+nav {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 12px;
+
+}
+
+.nav-item {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 14px;
+
+    padding: 14px;
+
+    border-radius: 12px;
+
+    color: var(--text-secondary);
+
+    transition: var(--transition);
+
+}
+
+.nav-item:hover {
+
+    background: var(--surface-hover);
+
+    color: white;
+
+}
+
+.nav-item.active {
+
+    background: var(--primary);
+
+    color: black;
+
+    font-weight: 600;
+
+}
+
+.profile {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 10px;
+
+    padding: 16px;
+
+}
+
+.profile-button,
+.profile-menu-button {
+
+    border: none;
+
+    background: transparent;
+
+    color: inherit;
+
+    cursor: pointer;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    transition: 0.2s;
+
+}
+
+.profile-button:hover,
+.profile-menu-button:hover {
+
+    transform: scale(1.08);
+
+}
+
+.profile-menu-button {
+
+    font-size: 22px;
+
+    font-weight: bold;
+
+}

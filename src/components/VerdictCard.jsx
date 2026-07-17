@@ -1,26 +1,49 @@
-const VerdictCard = ({ verdict }) => {
+import "./VerdictCard.css";
 
-    const getColor = () => {
+const VerdictCard = ({ submission }) => {
 
-        switch (verdict) {
+    if (!submission) {
+
+        return (
+
+            <div className="verdict-card">
+
+                <h3>Latest Submission</h3>
+
+                <p>No submissions yet.</p>
+
+            </div>
+
+        );
+
+    }
+
+    const status = submission.status;
+
+    const getStatusClass = () => {
+
+        switch (status) {
 
             case "Accepted":
-                return "green";
+                return "accepted";
 
             case "Wrong Answer":
-                return "red";
+                return "wrong-answer";
 
             case "Compilation Error":
-                return "orange";
+                return "compilation-error";
 
             case "Runtime Error":
-                return "purple";
+                return "runtime-error";
 
             case "Time Limit Exceeded":
-                return "goldenrod";
+                return "tle";
+
+            case "Pending":
+                return "pending";
 
             default:
-                return "blue";
+                return "pending";
 
         }
 
@@ -28,25 +51,49 @@ const VerdictCard = ({ verdict }) => {
 
     return (
 
-        <div
-            style={{
-                marginTop: "20px",
-                padding: "20px",
-                borderRadius: "10px",
-                background: "#ffffff",
-                border: `3px solid ${getColor()}`
-            }}
-        >
+        <div className="verdict-card">
 
-            <h2>Submission Result</h2>
+            <h3>
 
-            <h3
-                style={{
-                    color: getColor()
-                }}
-            >
-                {verdict}
+                Latest Submission
+
             </h3>
+
+            <div className={`verdict-status ${getStatusClass()}`}>
+
+                {status}
+
+            </div>
+
+            <div className="verdict-details">
+
+                <p>
+
+                    <strong>Language:</strong>
+
+                    {" "}
+
+                    {submission.language}
+
+                </p>
+
+                <p>
+
+                    <strong>Submitted:</strong>
+
+                    {" "}
+
+                    {
+
+                        new Date(
+                            submission.createdAt
+                        ).toLocaleString()
+
+                    }
+
+                </p>
+
+            </div>
 
         </div>
 

@@ -1,0 +1,85 @@
+.contest-card {
+
+    background: var(--surface);
+
+    border: 1px solid var(--border);
+
+    border-radius: 18px;
+
+    padding: 24px;
+
+    transition: var(--transition);
+
+}
+
+.contest-card:hover {
+
+    background: var(--surface-hover);
+
+    transform: translateY(-3px);
+
+}
+
+.contest-card-header {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 15px;
+
+}
+
+.contest-card-header h2 {
+
+    font-size: 22px;
+
+}
+
+.contest-description {
+
+    color: var(--text-secondary);
+
+    line-height: 1.6;
+
+    margin-bottom: 18px;
+
+}
+
+.contest-footer {
+
+    display: flex;
+
+    justify-content: flex-end;
+
+    margin-top: 20px;
+
+}
+
+.contest-button {
+
+    border: none;
+
+    border-radius: 10px;
+
+    background: var(--primary);
+
+    color: black;
+
+    padding: 11px 22px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: var(--transition);
+
+}
+
+.contest-button:hover {
+
+    background: var(--primary-hover);
+
+}

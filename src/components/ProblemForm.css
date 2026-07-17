@@ -1,0 +1,195 @@
+.problem-form {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 24px;
+
+}
+
+.form-row {
+
+    display: flex;
+
+    gap: 20px;
+
+}
+
+.form-row .form-group {
+
+    flex: 1;
+
+}
+
+.form-group {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 10px;
+
+}
+
+.form-group label {
+
+    color: white;
+
+    font-weight: 600;
+
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+
+    width: 100%;
+
+    background: #111827;
+
+    color: white;
+
+    border: 1px solid #374151;
+
+    border-radius: 10px;
+
+    padding: 12px;
+
+    font-size: 15px;
+
+    outline: none;
+
+    transition: .2s;
+
+    box-sizing: border-box;
+
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+
+    border-color: #2563eb;
+
+}
+
+.form-group textarea {
+
+    min-height: 120px;
+
+    resize: vertical;
+
+}
+
+.testcase-section {
+
+    margin-top: 10px;
+
+}
+
+.testcase-section h2 {
+
+    color: white;
+
+    margin-bottom: 20px;
+
+}
+
+.testcase-card {
+
+    background: #111827;
+
+    border: 1px solid #374151;
+
+    border-radius: 12px;
+
+    padding: 20px;
+
+    margin-bottom: 20px;
+
+}
+
+.testcase-card h4 {
+
+    color: white;
+
+    margin-top: 0;
+
+}
+
+.add-btn {
+
+    background: #2563eb;
+
+    color: white;
+
+    border: none;
+
+    padding: 12px 20px;
+
+    border-radius: 10px;
+
+    cursor: pointer;
+
+    font-weight: 600;
+
+}
+
+.add-btn:hover {
+
+    background: #1d4ed8;
+
+}
+
+.delete-btn {
+
+    margin-top: 10px;
+
+    background: #dc2626;
+
+    color: white;
+
+    border: none;
+
+    padding: 10px 18px;
+
+    border-radius: 8px;
+
+    cursor: pointer;
+
+}
+
+.delete-btn:hover {
+
+    background: #b91c1c;
+
+}
+
+.save-btn {
+
+    align-self: flex-end;
+
+    background: #16a34a;
+
+    color: white;
+
+    border: none;
+
+    padding: 14px 28px;
+
+    border-radius: 10px;
+
+    font-size: 16px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+}
+
+.save-btn:hover {
+
+    background: #15803d;
+
+}

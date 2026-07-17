@@ -1,0 +1,61 @@
+.problems-page {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 25px;
+
+}
+
+.problems-header {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    flex-wrap: wrap;
+
+    gap: 20px;
+
+}
+
+.problem-filters {
+
+    display: flex;
+
+    gap: 15px;
+
+}
+
+.problem-filters input {
+
+    background: var(--surface);
+
+    border: 1px solid var(--border);
+
+    color: white;
+
+    padding: 12px 15px;
+
+    border-radius: 10px;
+
+    width: 260px;
+
+}
+
+.problem-filters select {
+
+    background: var(--surface);
+
+    border: 1px solid var(--border);
+
+    color: white;
+
+    padding: 12px 15px;
+
+    border-radius: 10px;
+
+}

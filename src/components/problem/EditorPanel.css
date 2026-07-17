@@ -1,0 +1,106 @@
+.editor-panel {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 18px;
+
+}
+
+.editor-toolbar {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    background: var(--surface);
+
+    border: 1px solid var(--border);
+
+    border-radius: 16px;
+
+    padding: 18px;
+
+}
+
+.editor-toolbar select {
+
+    background: var(--bg);
+
+    color: white;
+
+    border: 1px solid var(--border);
+
+    border-radius: 10px;
+
+    padding: 10px 16px;
+
+}
+
+.toolbar-buttons {
+
+    display: flex;
+
+    gap: 12px;
+
+}
+
+.submit-btn,
+.review-btn {
+
+    border: none;
+
+    border-radius: 10px;
+
+    padding: 11px 18px;
+
+    font-weight: 600;
+
+    transition: var(--transition);
+
+}
+
+.submit-btn {
+
+    background: var(--primary);
+
+    color: black;
+
+}
+
+.submit-btn:hover {
+
+    background: var(--primary-hover);
+
+}
+
+.review-btn {
+
+    background: #3b82f6;
+
+    color: white;
+
+}
+
+.review-btn:hover {
+
+    background: #2563eb;
+
+}
+
+.editor-container {
+
+    background: var(--surface);
+
+    border: 1px solid var(--border);
+
+    border-radius: 16px;
+
+    overflow: hidden;
+
+    padding: 12px;
+
+}

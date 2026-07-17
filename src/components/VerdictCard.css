@@ -1,0 +1,91 @@
+.verdict-card {
+
+    background: var(--surface);
+
+    border: 1px solid var(--border);
+
+    border-radius: 16px;
+
+    padding: 20px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 18px;
+
+}
+
+.verdict-status {
+
+    padding: 12px;
+
+    border-radius: 10px;
+
+    text-align: center;
+
+    font-weight: 700;
+
+    font-size: 18px;
+
+}
+
+.accepted {
+
+    background: #16351d;
+
+    color: #57d163;
+
+}
+
+.wrong-answer {
+
+    background: #421818;
+
+    color: #ff6b6b;
+
+}
+
+.compilation-error {
+
+    background: #4d3315;
+
+    color: #ffb347;
+
+}
+
+.runtime-error {
+
+    background: #35204d;
+
+    color: #c084fc;
+
+}
+
+.tle {
+
+    background: #4d4315;
+
+    color: #facc15;
+
+}
+
+.pending {
+
+    background: #1b2a44;
+
+    color: #60a5fa;
+
+}
+
+.verdict-details {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 8px;
+
+    color: var(--text-secondary);
+
+}

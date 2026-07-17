@@ -1,0 +1,123 @@
+.contest-details-page {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 25px;
+
+}
+
+.contest-banner {
+
+    background: var(--surface);
+
+    border: 1px solid var(--border);
+
+    border-radius: 18px;
+
+    padding: 25px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+}
+
+.contest-banner h1 {
+
+    margin-bottom: 10px;
+
+}
+
+.contest-banner p {
+
+    color: var(--text-secondary);
+
+}
+
+.contest-info {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    padding: 25px;
+
+}
+
+.contest-problems {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 15px;
+
+}
+
+.problem-card {
+
+    background: var(--surface);
+
+    border: 1px solid var(--border);
+
+    border-radius: 14px;
+
+    padding: 18px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 20px;
+
+    cursor: pointer;
+
+}
+
+.problem-card span {
+
+    width: 40px;
+
+    height: 40px;
+
+    border-radius: 50%;
+
+    background: var(--primary);
+
+    color: black;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    font-weight: 700;
+
+}
+
+.leaderboard-btn {
+
+    align-self: flex-end;
+
+    background: var(--primary);
+
+    color: black;
+
+    border: none;
+
+    padding: 12px 24px;
+
+    border-radius: 10px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+}

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
-
+import "./Login.css";
 import { registerUser } from "../services/authService";
 
 const Register = () => {
@@ -32,11 +32,11 @@ const Register = () => {
 
             setLoading(true);
 
-            await registerUser(formData);
+            const data = await registerUser(formData);
 
             alert("Registration Successful");
 
-            navigate("/");
+            navigate("/dashboard");
 
         } catch (error) {
 
@@ -55,78 +55,94 @@ const Register = () => {
 
     return (
 
-        <div
-            style={{
-                width: "400px",
-                margin: "80px auto",
-            }}
-        >
+        <div className="login-page">
 
-            <h1>Register</h1>
+            <div className="login-card">
 
-            <form onSubmit={handleSubmit}>
+                <h1>Create Account</h1>
 
-                <input
-                    type="text"
-                    name="name"
-                    placeholder="Name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    required
-                    style={{
-                        width: "100%",
-                        padding: "10px",
-                        marginBottom: "15px",
-                    }}
-                />
+                <p>
+                    Join the Online Judge and start solving problems.
+                </p>
 
-                <input
-                    type="email"
-                    name="email"
-                    placeholder="Email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    required
-                    style={{
-                        width: "100%",
-                        padding: "10px",
-                        marginBottom: "15px",
-                    }}
-                />
+                <form onSubmit={handleSubmit}>
 
-                <input
-                    type="password"
-                    name="password"
-                    placeholder="Password"
-                    value={formData.password}
-                    onChange={handleChange}
-                    required
-                    style={{
-                        width: "100%",
-                        padding: "10px",
-                        marginBottom: "15px",
-                    }}
-                />
+                    <div className="input-group">
 
-                <button
-                    type="submit"
-                    disabled={loading}
-                    style={{
-                        width: "100%",
-                        padding: "10px",
-                    }}
-                >
-                    {loading ? "Registering..." : "Register"}
-                </button>
+                        <label>Full Name</label>
 
-            </form>
+                        <input
+                            type="text"
+                            name="name"
+                            placeholder="Enter your name"
+                            value={formData.name}
+                            onChange={handleChange}
+                            required
+                        />
 
-            <p style={{ marginTop: "20px" }}>
-                Already have an account?{" "}
-                <Link to="/">
-                    Login
-                </Link>
-            </p>
+                    </div>
+
+                    <div className="input-group">
+
+                        <label>Email</label>
+
+                        <input
+                            type="email"
+                            name="email"
+                            placeholder="Enter your email"
+                            value={formData.email}
+                            onChange={handleChange}
+                            required
+                        />
+
+                    </div>
+
+                    <div className="input-group">
+
+                        <label>Password</label>
+
+                        <input
+                            type="password"
+                            name="password"
+                            placeholder="Create a password"
+                            value={formData.password}
+                            onChange={handleChange}
+                            required
+                        />
+
+                    </div>
+
+                    <button
+                        className="login-btn"
+                        type="submit"
+                        disabled={loading}
+                    >
+
+                        {
+
+                            loading
+                                ? "Creating Account..."
+                                : "Create Account"
+
+                        }
+
+                    </button>
+
+                </form>
+
+                <p className="register-link">
+
+                    Already have an account?
+
+                    <Link to="/">
+
+                        Login
+
+                    </Link>
+
+                </p>
+
+            </div>
 
         </div>
 

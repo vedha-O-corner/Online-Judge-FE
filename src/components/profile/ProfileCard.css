@@ -1,0 +1,39 @@
+.profile-card {
+
+    background: var(--surface);
+
+    border: 1px solid var(--border);
+
+    border-radius: 16px;
+
+    padding: 24px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 18px;
+
+}
+
+.profile-item {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+}
+
+.profile-item span {
+
+    color: var(--text-secondary);
+
+}
+
+.profile-item strong {
+
+    color: var(--text-primary);
+
+}

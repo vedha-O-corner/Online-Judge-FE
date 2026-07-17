@@ -1,0 +1,157 @@
+.contest-form {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 24px;
+
+}
+
+.form-group {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 10px;
+
+}
+
+.form-group label {
+
+    color: white;
+
+    font-weight: 600;
+
+}
+
+.form-group input,
+
+.form-group textarea {
+
+    background: #111827;
+
+    color: white;
+
+    border: 1px solid #374151;
+
+    border-radius: 10px;
+
+    padding: 12px 14px;
+
+    font-size: 15px;
+
+    outline: none;
+
+    transition: .2s;
+
+}
+
+.form-group input:focus,
+
+.form-group textarea:focus {
+
+    border-color: #2563eb;
+
+}
+
+.form-group textarea {
+
+    min-height: 150px;
+
+    resize: vertical;
+
+}
+
+.datetime-row {
+
+    display: flex;
+
+    gap: 20px;
+
+}
+
+.datetime-row .form-group {
+
+    flex: 1;
+
+}
+
+.problem-box {
+
+    background: #111827;
+
+    border: 1px solid #374151;
+
+    border-radius: 10px;
+
+    padding: 20px;
+
+}
+
+.problem-box h3 {
+
+    margin-top: 0;
+
+    color: white;
+
+}
+
+.problem-item {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    color: white;
+
+    padding: 8px 0;
+
+}
+
+.public-checkbox {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    color: white;
+
+    font-weight: 600;
+
+}
+
+.save-btn {
+
+    align-self: flex-end;
+
+    background: #2563eb;
+
+    color: white;
+
+    border: none;
+
+    border-radius: 10px;
+
+    padding: 12px 28px;
+
+    font-size: 15px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: .2s;
+
+}
+
+.save-btn:hover {
+
+    background: #1d4ed8;
+
+}

@@ -1,0 +1,121 @@
+.problem-page{
+
+    height:calc(100vh - 60px);
+
+    display:grid;
+
+    grid-template-columns:45% 55%;
+
+    gap:22px;
+
+}
+
+.problem-left{
+
+    overflow-y:auto;
+
+    padding-right:10px;
+
+}
+
+.problem-right{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:18px;
+
+}
+
+.problem-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:22px;
+
+}
+
+.problem-title{
+
+    font-size:30px;
+
+    font-weight:700;
+
+}
+
+.problem-section{
+
+    background:var(--surface);
+
+    border:1px solid var(--border);
+
+    border-radius:16px;
+
+    padding:22px;
+
+    margin-bottom:18px;
+
+}
+
+.problem-section h3{
+
+    margin-bottom:12px;
+
+    color:var(--primary);
+
+}
+
+.editor-card{
+
+    background:var(--surface);
+
+    border:1px solid var(--border);
+
+    border-radius:16px;
+
+    padding:18px;
+
+}
+
+.bottom-row{
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:18px;
+
+}
+
+.verdict-card{
+
+    background:var(--surface);
+
+    border-radius:16px;
+
+    border:1px solid var(--border);
+
+    padding:18px;
+
+    min-height:220px;
+
+}
+
+.ai-card{
+
+    background:var(--surface);
+
+    border-radius:16px;
+
+    border:1px solid var(--border);
+
+    padding:18px;
+
+    min-height:220px;
+
+}

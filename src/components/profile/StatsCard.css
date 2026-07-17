@@ -1,0 +1,41 @@
+.stats-card {
+
+    background: var(--surface);
+
+    border: 1px solid var(--border);
+
+    border-radius: 16px;
+
+    padding: 24px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 18px;
+
+}
+
+.stat {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+}
+
+.stat span {
+
+    color: var(--text-secondary);
+
+}
+
+.stat strong {
+
+    color: var(--text-primary);
+
+    font-size: 18px;
+
+}

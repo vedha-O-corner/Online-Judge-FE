@@ -1,24 +1,26 @@
 import { useNavigate } from "react-router-dom";
 
+import "./ProblemTable.css";
+
 const ProblemTable = ({ problems }) => {
 
     const navigate = useNavigate();
 
-    const getDifficultyColor = (difficulty) => {
+    const getDifficultyClass = (difficulty) => {
 
         switch (difficulty) {
 
             case "Easy":
-                return "green";
+                return "easy";
 
             case "Medium":
-                return "orange";
+                return "medium";
 
             case "Hard":
-                return "red";
+                return "hard";
 
             default:
-                return "black";
+                return "";
 
         }
 
@@ -26,93 +28,91 @@ const ProblemTable = ({ problems }) => {
 
     return (
 
-        <table
-            style={{
-                width: "100%",
-                borderCollapse: "collapse",
-                marginTop: "20px",
-                background: "white",
-            }}
-        >
+        <div className="problem-table-container card">
 
-            <thead>
+            <table className="problem-table">
 
-                <tr>
+                <thead>
 
-                    <th style={styles.header}>#</th>
+                    <tr>
 
-                    <th style={styles.header}>Title</th>
+                        <th>#</th>
 
-                    <th style={styles.header}>Difficulty</th>
+                        <th>Problem</th>
 
-                    <th style={styles.header}>Action</th>
-
-                </tr>
-
-            </thead>
-
-            <tbody>
-
-                {problems.map((problem, index) => (
-
-                    <tr key={problem._id}>
-
-                        <td style={styles.cell}>
-                            {index + 1}
-                        </td>
-
-                        <td style={styles.cell}>
-                            {problem.title}
-                        </td>
-
-                        <td
-                            style={{
-                                ...styles.cell,
-                                color: getDifficultyColor(problem.difficulty),
-                                fontWeight: "bold",
-                            }}
-                        >
-                            {problem.difficulty}
-                        </td>
-
-                        <td style={styles.cell}>
-
-                            <button
-                                onClick={() =>
-                                    navigate(`/problems/${problem._id}`)
-                                }
-                            >
-                                Solve
-                            </button>
-
-                        </td>
+                        <th>Difficulty</th>
 
                     </tr>
 
-                ))}
+                </thead>
 
-            </tbody>
+                <tbody>
 
-        </table>
+                    {
+
+                        problems.length === 0 ?
+
+                            <tr>
+
+                                <td
+                                    colSpan="3"
+                                    className="no-problems"
+                                >
+
+                                    No Problems Found
+
+                                </td>
+
+                            </tr>
+
+                            :
+
+                            problems.map((problem, index) => (
+
+                                <tr
+                                    key={problem._id}
+                                    onClick={() =>
+                                        navigate(`/problems/${problem._id}`)
+                                    }
+                                >
+
+                                    <td>
+
+                                        {index + 1}
+
+                                    </td>
+
+                                    <td>
+
+                                        {problem.title}
+
+                                    </td>
+
+                                    <td>
+
+                                        <span
+                                            className={`difficulty ${getDifficultyClass(problem.difficulty)}`}
+                                        >
+
+                                            {problem.difficulty}
+
+                                        </span>
+
+                                    </td>
+
+                                </tr>
+
+                            ))
+
+                    }
+
+                </tbody>
+
+            </table>
+
+        </div>
 
     );
-
-};
-
-const styles = {
-
-    header: {
-        border: "1px solid #ddd",
-        padding: "12px",
-        background: "#1f2937",
-        color: "white",
-    },
-
-    cell: {
-        border: "1px solid #ddd",
-        padding: "12px",
-        textAlign: "center",
-    },
 
 };
 

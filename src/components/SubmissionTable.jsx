@@ -1,129 +1,89 @@
+import "./SubmissionTable.css";
+
 const SubmissionTable = ({ submissions }) => {
-
-    const getColor = (status) => {
-
-        switch (status) {
-
-            case "Accepted":
-                return "green";
-
-            case "Wrong Answer":
-                return "red";
-
-            case "Compilation Error":
-                return "orange";
-
-            case "Runtime Error":
-                return "purple";
-
-            case "Time Limit Exceeded":
-                return "goldenrod";
-
-            default:
-                return "blue";
-
-        }
-
-    };
 
     return (
 
-        <table
-            style={{
-                width: "100%",
-                borderCollapse: "collapse",
-                marginTop: "20px",
-                background: "white",
-            }}
-        >
+        <div className="submission-table-container">
 
-            <thead>
+            <table className="submission-table">
 
-                <tr>
+                <thead>
 
-                    <th style={styles.header}>Problem</th>
+                    <tr>
 
-                    <th style={styles.header}>Language</th>
+                        <th>Problem</th>
 
-                    <th style={styles.header}>Verdict</th>
+                        <th>Language</th>
 
-                    <th style={styles.header}>Submitted</th>
+                        <th>Verdict</th>
 
-                </tr>
+                        <th>Submitted</th>
 
-            </thead>
+                    </tr>
 
-            <tbody>
+                </thead>
 
-                {
+                <tbody>
 
-                    submissions.map((submission) => (
+                    {
 
-                        <tr key={submission._id}>
+                        submissions.map((submission) => (
 
-                            <td style={styles.cell}>
-                                {submission.problem.title}
-                            </td>
+                            <tr key={submission._id}>
 
-                            <td style={styles.cell}>
-                                {submission.language}
-                            </td>
+                                <td>
 
-                            <td
-                                style={{
-                                    ...styles.cell,
-                                    color: getColor(submission.status),
-                                    fontWeight: "bold",
-                                }}
-                            >
-                                {submission.status}
-                            </td>
+                                    {submission.problem?.title ||
+                                        "Deleted Problem"}
 
-                            <td style={styles.cell}>
-                                {
-                                    new Date(
+                                </td>
+
+                                <td>
+
+                                    <span className="language-badge">
+
+                                        {submission.language.toUpperCase()}
+
+                                    </span>
+
+                                </td>
+
+                                <td>
+
+                                    <span
+                                        className={`status ${submission.status
+                                            .toLowerCase()
+                                            .replace(/\s+/g, "-")}`}
+                                    >
+
+                                        {submission.status}
+
+                                    </span>
+
+                                </td>
+
+                                <td>
+
+                                    {new Date(
                                         submission.createdAt
-                                    ).toLocaleString()
-                                }
-                            </td>
+                                    ).toLocaleString()}
 
-                        </tr>
+                                </td>
 
-                    ))
+                            </tr>
 
-                }
+                        ))
 
-            </tbody>
+                    }
 
-        </table>
+                </tbody>
+
+            </table>
+
+        </div>
 
     );
-
-};
-
-const styles = {
-
-    header: {
-
-        border: "1px solid #ddd",
-
-        padding: "12px",
-
-        background: "#1f2937",
-
-        color: "white",
-
-    },
-
-    cell: {
-
-        border: "1px solid #ddd",
-
-        padding: "12px",
-
-        textAlign: "center",
-
-    },
 
 };
 

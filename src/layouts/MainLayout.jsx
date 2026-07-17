@@ -1,34 +1,34 @@
-import { Outlet } from "react-router-dom";
+// import { Outlet } from "react-router-dom";
 
-import Navbar from "../components/Navbar";
-import Sidebar from "../components/Sidebar";
+// import Navbar from "../components/Navbar";
+// import Sidebar from "../components/Sidebar";
 
-import "./MainLayout.css";
+// import "./MainLayout.css";
 
-const MainLayout = () => {
+// const MainLayout = () => {
 
-    return (
+//     return (
 
-        <div className="layout">
+//         <div className="layout">
 
-            <Navbar />
+//             <Navbar />
 
-            <div className="layout-body">
+//             <div className="layout-body">
 
-                <Sidebar />
+//                 <Sidebar />
 
-                <main className="layout-content">
+//                 <main className="layout-content">
 
-                    <Outlet />
+//                     <Outlet />
 
-                </main>
+//                 </main>
 
-            </div>
+//             </div>
 
-        </div>
+//         </div>
 
-    );
+//     );
 
-};
+// };
 
-export default MainLayout;
+// export default MainLayout;

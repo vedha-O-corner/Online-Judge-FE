@@ -1,0 +1,44 @@
+.submission-history {
+
+    background: var(--surface);
+
+    border: 1px solid var(--border);
+
+    border-radius: 16px;
+
+    padding: 24px;
+
+}
+
+.submission-history table {
+
+    width: 100%;
+
+    border-collapse: collapse;
+
+    margin-top: 20px;
+
+}
+
+.submission-history th,
+.submission-history td {
+
+    padding: 12px;
+
+    text-align: left;
+
+    border-bottom: 1px solid var(--border);
+
+}
+
+.submission-history th {
+
+    color: var(--text-primary);
+
+}
+
+.submission-history td {
+
+    color: var(--text-secondary);
+
+}

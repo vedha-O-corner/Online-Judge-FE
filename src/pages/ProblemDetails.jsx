@@ -1,10 +1,19 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
-import { getProblemById } from "../services/problemService";
-import { submitCode } from "../services/submissionService";
+import "./ProblemDetails.css";
 
-import CodeEditor from "../components/CodeEditor";
+import { getProblemById } from "../services/problemService";
+
+import { getAIReview } from "../services/aiService";
+import {
+    submitCode,
+    getSubmissionStatus,
+} from "../services/submissionService";
+import ProblemInfo from "../components/problem/ProblemInfo";
+import EditorPanel from "../components/problem/EditorPanel";
+import VerdictCard from "../components/problem/VerdictCard";
+import AIReviewCard from "../components/AIReviewCard";
 
 const ProblemDetails = () => {
 
@@ -25,7 +34,14 @@ int main(){
 }`
     );
 
+    const [review, setReview] = useState(null);
+
     const [loading, setLoading] = useState(true);
+
+    const [reviewLoading, setReviewLoading] = useState(false);
+
+    const [latestSubmission, setLatestSubmission] =
+        useState(null);
 
     useEffect(() => {
 
@@ -67,14 +83,101 @@ int main(){
 
             });
 
-            alert(response.message);
+            setLatestSubmission(
+                response.submission
+            );
+
+            pollSubmissionStatus(
+                response.submission._id
+            );
+
+        }
+
+        catch (error) {
+
+            console.log(error);
+
+        }
+
+    };
+
+    const pollSubmissionStatus = (submissionId) => {
+
+        const interval = setInterval(async () => {
+
+            try {
+
+                const data = await getSubmissionStatus(
+                    submissionId
+                );
+
+                setLatestSubmission((previous) => ({
+
+                    ...previous,
+
+                    status: data.status,
+
+                }));
+
+                const finished = [
+
+                    "Accepted",
+                    "Wrong Answer",
+                    "Compilation Error",
+                    "Runtime Error",
+                    "Time Limit Exceeded",
+
+                ];
+
+                if (
+                    finished.includes(data.status)
+                ) {
+
+                    clearInterval(interval);
+
+                }
+
+            }
+
+            catch (error) {
+
+                console.log(error);
+
+                clearInterval(interval);
+
+            }
+
+        }, 1000);
+
+    };
+
+    const handleAIReview = async () => {
+
+        try {
+
+            setReviewLoading(true);
+
+            const data = await getAIReview({
+
+                code,
+
+                language,
+
+                problemTitle: problem.title,
+
+                problemDescription: problem.description,
+
+            });
+
+            setReview(data);
 
         } catch (error) {
 
-            alert(
-                error.response?.data?.message ||
-                "Submission Failed"
-            );
+            console.log(error);
+
+        } finally {
+
+            setReviewLoading(false);
 
         }
 
@@ -94,80 +197,41 @@ int main(){
 
     return (
 
-        <div>
+        <div className="problem-page fade">
 
-            <h1>{problem.title}</h1>
+            <div className="problem-left">
 
-            <br />
+                <ProblemInfo
+                    problem={problem}
+                />
 
-            <h3>Description</h3>
+            </div>
 
-            <p>{problem.description}</p>
+            <div className="problem-right">
 
-            <br />
+                <EditorPanel
+                    language={language}
+                    setLanguage={setLanguage}
+                    code={code}
+                    setCode={setCode}
+                    handleSubmit={handleSubmit}
+                    handleAIReview={handleAIReview}
+                    reviewLoading={reviewLoading}
+                />
 
-            <h3>Difficulty</h3>
+                <div className="bottom-row">
 
-            <p>{problem.difficulty}</p>
+                    <VerdictCard
+                        submission={latestSubmission}
+                    />
 
-            <br />
+                    <AIReviewCard
+                        review={review}
+                    />
 
-            <h3>Constraints</h3>
+                </div>
 
-            <p>{problem.constraints}</p>
-
-            <br />
-
-            <h3>Input Format</h3>
-
-            <p>{problem.inputFormat}</p>
-
-            <br />
-
-            <h3>Output Format</h3>
-
-            <p>{problem.outputFormat}</p>
-
-            <br />
-
-            <h3>Sample Input</h3>
-
-            <pre>{problem.sampleInput}</pre>
-
-            <br />
-
-            <h3>Sample Output</h3>
-
-            <pre>{problem.sampleOutput}</pre>
-
-            <br />
-
-            <select
-                value={language}
-                onChange={(e) => setLanguage(e.target.value)}
-            >
-
-                <option value="cpp">C++</option>
-
-                <option value="java">Java</option>
-
-                <option value="python">Python</option>
-
-            </select>
-
-            <br /><br />
-
-            <CodeEditor
-                language={language}
-                code={code}
-                setCode={setCode}
-            />
-
-            <br />
-
-            <button onClick={handleSubmit}>
-                Submit
-            </button>
+            </div>
 
         </div>
 

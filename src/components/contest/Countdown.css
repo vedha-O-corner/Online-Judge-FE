@@ -1,0 +1,11 @@
+.countdown {
+
+    font-size: 15px;
+
+    font-weight: 600;
+
+    color: var(--primary);
+
+    margin-top: 8px;
+
+}

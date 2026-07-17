@@ -1,0 +1,178 @@
+.admin-contests-page {
+
+    padding: 30px;
+
+}
+
+.page-header {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 30px;
+
+}
+
+.page-header h1 {
+
+    margin: 0;
+
+    color: white;
+
+    font-size: 2rem;
+
+}
+
+.page-header p {
+
+    margin-top: 8px;
+
+    color: #9ca3af;
+
+}
+
+.create-btn {
+
+    background: #3b82f6;
+
+    color: white;
+
+    border: none;
+
+    border-radius: 10px;
+
+    padding: 12px 20px;
+
+    font-size: 15px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: .2s;
+
+}
+
+.create-btn:hover {
+
+    background: #2563eb;
+
+}
+
+.contest-table-container {
+
+    background: #1f2937;
+
+    border-radius: 14px;
+
+    overflow: hidden;
+
+    box-shadow: 0 8px 24px rgba(0, 0, 0, .35);
+
+}
+
+.contest-table {
+
+    width: 100%;
+
+    border-collapse: collapse;
+
+}
+
+.contest-table th {
+
+    background: #111827;
+
+    color: white;
+
+    padding: 18px;
+
+    text-align: center;
+
+    font-size: 15px;
+
+}
+
+.contest-table td {
+
+    padding: 16px;
+
+    text-align: center;
+
+    color: white;
+
+}
+
+.contest-table tbody tr {
+
+    border-bottom: 1px solid #374151;
+
+    transition: .2s;
+
+}
+
+.contest-table tbody tr:hover {
+
+    background: #111827;
+}
+
+.actions {
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 12px;
+
+}
+
+.edit-btn {
+
+    background: #2563eb;
+
+    color: white;
+
+    border: none;
+
+    border-radius: 8px;
+
+    padding: 8px 16px;
+
+    cursor: pointer;
+
+    transition: .2s;
+
+}
+
+.edit-btn:hover {
+
+    background: #1d4ed8;
+
+}
+
+.delete-btn {
+
+    background: #dc2626;
+
+    color: white;
+
+    border: none;
+
+    border-radius: 8px;
+
+    padding: 8px 16px;
+
+    cursor: pointer;
+
+    transition: .2s;
+
+}
+
+.delete-btn:hover {
+
+    background: #b91c1c;
+
+}

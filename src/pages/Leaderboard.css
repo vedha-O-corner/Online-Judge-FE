@@ -1,0 +1,47 @@
+.leaderboard-page {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 30px;
+
+}
+
+.leaderboard-table {
+
+    width: 100%;
+
+    border-collapse: collapse;
+
+    background: var(--surface);
+
+    border-radius: 16px;
+
+    overflow: hidden;
+
+}
+
+.leaderboard-table th {
+
+    background: var(--surface-hover);
+
+    padding: 18px;
+
+    text-align: left;
+
+}
+
+.leaderboard-table td {
+
+    padding: 18px;
+
+    border-top: 1px solid var(--border);
+
+}
+
+.leaderboard-table tbody tr:hover {
+
+    background: rgba(255, 255, 255, .04);
+
+}

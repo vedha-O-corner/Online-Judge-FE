@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
-
+import "./Login.css";
 import { loginUser } from "../services/authService";
 import useAuth from "../hooks/useAuth";
 
@@ -38,6 +38,11 @@ const Login = () => {
 
             login(data.token);
 
+            localStorage.setItem(
+                "user",
+                JSON.stringify(data.user)
+            );
+
             alert("Login Successful");
 
             navigate("/dashboard");
@@ -58,66 +63,83 @@ const Login = () => {
     };
 
     return (
-        <div
-            style={{
-                width: "400px",
-                margin: "80px auto",
-            }}
-        >
 
-            <h1>Login</h1>
+        <div className="login-page">
 
-            <form onSubmit={handleSubmit}>
+            <div className="login-card">
 
-                <input
-                    type="email"
-                    name="email"
-                    placeholder="Email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    required
-                    style={{
-                        width: "100%",
-                        marginBottom: "15px",
-                        padding: "10px",
-                    }}
-                />
+                <h1>Welcome Back</h1>
 
-                <input
-                    type="password"
-                    name="password"
-                    placeholder="Password"
-                    value={formData.password}
-                    onChange={handleChange}
-                    required
-                    style={{
-                        width: "100%",
-                        marginBottom: "15px",
-                        padding: "10px",
-                    }}
-                />
+                <p>
+                    Sign in to continue to your Online Judge.
+                </p>
 
-                <button
-                    type="submit"
-                    disabled={loading}
-                    style={{
-                        width: "100%",
-                        padding: "10px",
-                    }}
-                >
-                    {loading ? "Logging In..." : "Login"}
-                </button>
+                <form onSubmit={handleSubmit}>
 
-            </form>
+                    <div className="input-group">
 
-            <p style={{ marginTop: "20px" }}>
-                Don't have an account?{" "}
-                <Link to="/register">
-                    Register
-                </Link>
-            </p>
+                        <label>Email</label>
+
+                        <input
+                            type="email"
+                            name="email"
+                            placeholder="Enter your email"
+                            value={formData.email}
+                            onChange={handleChange}
+                            required
+                        />
+
+                    </div>
+
+                    <div className="input-group">
+
+                        <label>Password</label>
+
+                        <input
+                            type="password"
+                            name="password"
+                            placeholder="Enter your password"
+                            value={formData.password}
+                            onChange={handleChange}
+                            required
+                        />
+
+                    </div>
+
+                    <button
+                        className="login-btn"
+                        type="submit"
+                        disabled={loading}
+                    >
+
+                        {
+
+                            loading
+                                ? "Logging In..."
+                                : "Login"
+
+                        }
+
+                    </button>
+
+                </form>
+
+                <p className="register-link">
+
+                    Don't have an account?
+
+                    <Link to="/register">
+
+                        Register
+
+                    </Link>
+
+                </p>
+
+            </div>
 
         </div>
+
     );
 
 };

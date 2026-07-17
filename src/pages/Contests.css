@@ -1,0 +1,41 @@
+.contests-page {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 40px;
+
+}
+
+.contest-section {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 18px;
+
+}
+
+.contest-section h2 {
+
+    font-size: 24px;
+
+}
+
+.contest-grid {
+
+    display: grid;
+
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+
+    gap: 22px;
+
+}
+
+.empty-text {
+
+    color: var(--text-secondary);
+
+}

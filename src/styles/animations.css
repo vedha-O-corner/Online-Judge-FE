@@ -1,0 +1,33 @@
+.hover-card{
+
+    transition:.25s;
+
+}
+
+.hover-card:hover{
+
+    transform:translateY(-3px);
+
+}
+
+.fade{
+
+    animation:fade .3s;
+
+}
+
+@keyframes fade{
+
+    from{
+
+        opacity:0;
+
+    }
+
+    to{
+
+        opacity:1;
+
+    }
+
+}
