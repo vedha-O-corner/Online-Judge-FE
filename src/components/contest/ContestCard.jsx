@@ -1,11 +1,14 @@
-import { useNavigate } from "react-router-dom";
-
+import { useNavigate, useParams } from "react-router-dom";
+import useAuth from "../../hooks/useAuth";
 import ContestStatusBadge from "./ContestStatusBadge";
 import Countdown from "./Countdown";
-
+import { joinContest } from "../../services/contestService";
 import "./ContestCard.css";
 
 const ContestCard = ({ contest }) => {
+    const { id } = useParams();
+
+    const { user } = useAuth();
 
     const navigate = useNavigate();
 
@@ -21,24 +24,34 @@ const ContestCard = ({ contest }) => {
     const isEnded =
         now > end;
 
-    const handleClick = () => {
-
-        if (isLive) {
-
+    const handleClick = async () => {
+        if (!isLive) {
+            navigate(`/contests/${contest._id}`);
+            return;
+        }
+        console.log("User ID:", user._id);
+        console.log("Participants:", contest.participants);
+        const joined = contest.participants.some(
+            participant => participant.toString() === user._id
+        );
+        console.log("Joined:", joined);
+        if (!joined) {
             const confirmJoin = window.confirm(
                 `Join "${contest.title}"?`
             );
 
-            if (!confirmJoin) {
+            if (!confirmJoin) return;
 
+            try {
+                await joinContest(contest._id);
+            } catch (err) {
+                console.error(err);
+                alert("Cannot join contest.");
                 return;
-
             }
-
         }
 
         navigate(`/contests/${contest._id}`);
-
     };
 
     return (

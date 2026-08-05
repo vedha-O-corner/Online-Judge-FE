@@ -1,5 +1,7 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-
+import {
+    createBrowserRouter,
+    createRoutesFromElements, Route
+} from "react-router-dom";
 import MainLayout from "../components/layout/MainLayout";
 import Profile from "../pages/Profile";
 import Login from "../pages/Login";
@@ -19,157 +21,297 @@ import CreateContest from "../pages/CreateContest";
 import EditContest from "../pages/EditContest";
 import ProtectedRoute from "./ProtectedRoute";
 
-const AppRouter = () => {
-    return (
-        <BrowserRouter>
-            <Routes>
+const router = createBrowserRouter(
+    createRoutesFromElements(
+        <>
+            {/* Public Routes */}
 
-                {/* Public Routes */}
+
+
+            <Route
+
+                path="/"
+
+                element={<Login />}
+
+            />
+
+
+
+            <Route
+
+                path="/register"
+
+                element={<Register />}
+
+            />
+
+
+
+            {/* Protected Routes */}
+
+
+
+            <Route element={<MainLayout />}>
+
+
 
                 <Route
-                    path="/"
-                    element={<Login />}
+
+                    path="/dashboard"
+
+                    element={
+
+                        <ProtectedRoute>
+
+                            <Dashboard />
+
+                        </ProtectedRoute>
+
+                    }
+
+                />
+
+
+
+                <Route
+
+                    path="/problems"
+
+                    element={
+
+                        <ProtectedRoute>
+
+                            <Problems />
+
+                        </ProtectedRoute>
+
+                    }
+
                 />
 
                 <Route
-                    path="/register"
-                    element={<Register />}
+                    path="/contests/:contestId/problems/:id"
+                    element={<ProblemDetails />}
                 />
 
-                {/* Protected Routes */}
+                <Route
 
-                <Route element={<MainLayout />}>
+                    path="/problems/:id"
 
-                    <Route
-                        path="/dashboard"
-                        element={
-                            <ProtectedRoute>
-                                <Dashboard />
-                            </ProtectedRoute>
-                        }
-                    />
+                    element={
 
-                    <Route
-                        path="/problems"
-                        element={
-                            <ProtectedRoute>
-                                <Problems />
-                            </ProtectedRoute>
-                        }
-                    />
+                        <ProtectedRoute>
 
-                    <Route
-                        path="/problems/:id"
-                        element={
-                            <ProtectedRoute>
-                                <ProblemDetails />
-                            </ProtectedRoute>
-                        }
-                    />
+                            <ProblemDetails />
 
-                    <Route
-                        path="/contests"
-                        element={
-                            <ProtectedRoute>
-                                <Contests />
-                            </ProtectedRoute>
-                        }
-                    />
+                        </ProtectedRoute>
 
-                    <Route
-                        path="/contests/:id"
-                        element={
-                            <ProtectedRoute>
-                                <ContestDetails />
-                            </ProtectedRoute>
-                        }
-                    />
+                    }
 
-                    <Route
-                        path="/leaderboard/:id"
-                        element={
-                            <ProtectedRoute>
-                                <Leaderboard />
-                            </ProtectedRoute>
-                        }
-                    />
+                />
 
-                    <Route
-                        path="/submissions"
-                        element={
-                            <ProtectedRoute>
-                                <MySubmissions />
-                            </ProtectedRoute>
-                        }
-                    />
 
-                    {/* Admin Problem Routes */}
 
-                    <Route
-                        path="/admin/problems"
-                        element={
-                            <ProtectedRoute>
-                                <AdminProblems />
-                            </ProtectedRoute>
-                        }
-                    />
+                <Route
 
-                    <Route
-                        path="/admin/problems/create"
-                        element={
-                            <ProtectedRoute>
-                                <CreateProblem />
-                            </ProtectedRoute>
-                        }
-                    />
+                    path="/contests"
 
-                    <Route
-                        path="/admin/problems/edit/:id"
-                        element={
-                            <ProtectedRoute>
-                                <EditProblem />
-                            </ProtectedRoute>
-                        }
-                    />
+                    element={
 
-                    {/* Admin Contest Routes */}
+                        <ProtectedRoute>
 
-                    <Route
-                        path="/admin/contests"
-                        element={
-                            <ProtectedRoute>
-                                <AdminContests />
-                            </ProtectedRoute>
-                        }
-                    />
-                    <Route
-                        path="/admin/contests/create"
-                        element={
-                            <ProtectedRoute>
-                                <CreateContest />
-                            </ProtectedRoute>
-                        }
-                    />
+                            <Contests />
 
-                    <Route
-                        path="/admin/contests/edit/:id"
-                        element={
-                            <ProtectedRoute>
-                                <EditContest />
-                            </ProtectedRoute>
-                        }
-                    />
+                        </ProtectedRoute>
 
-                    <Route
-                        path="/profile"
-                        element={<Profile />}
-                    />
+                    }
 
-                </Route>
+                />
 
-            </Routes>
-        </BrowserRouter>
-    );
-};
 
-export default AppRouter;
+
+                <Route
+
+                    path="/contests/:id"
+
+                    element={
+
+                        <ProtectedRoute>
+
+                            <ContestDetails />
+
+                        </ProtectedRoute>
+
+                    }
+
+                />
+
+
+
+                <Route
+
+                    path="/leaderboard/:id"
+
+                    element={
+
+                        <ProtectedRoute>
+
+                            <Leaderboard />
+
+                        </ProtectedRoute>
+
+                    }
+
+                />
+
+
+
+                <Route
+
+                    path="/submissions"
+
+                    element={
+
+                        <ProtectedRoute>
+
+                            <MySubmissions />
+
+                        </ProtectedRoute>
+
+                    }
+
+                />
+
+
+
+                {/* Admin Problem Routes */}
+
+
+
+                <Route
+
+                    path="/admin/problems"
+
+                    element={
+
+                        <ProtectedRoute>
+
+                            <AdminProblems />
+
+                        </ProtectedRoute>
+
+                    }
+
+                />
+
+
+
+                <Route
+
+                    path="/admin/problems/create"
+
+                    element={
+
+                        <ProtectedRoute>
+
+                            <CreateProblem />
+
+                        </ProtectedRoute>
+
+                    }
+
+                />
+
+
+
+                <Route
+
+                    path="/admin/problems/edit/:id"
+
+                    element={
+
+                        <ProtectedRoute>
+
+                            <EditProblem />
+
+                        </ProtectedRoute>
+
+                    }
+
+                />
+
+
+
+                {/* Admin Contest Routes */}
+
+
+
+                <Route
+
+                    path="/admin/contests"
+
+                    element={
+
+                        <ProtectedRoute>
+
+                            <AdminContests />
+
+                        </ProtectedRoute>
+
+                    }
+
+                />
+
+                <Route
+
+                    path="/admin/contests/create"
+
+                    element={
+
+                        <ProtectedRoute>
+
+                            <CreateContest />
+
+                        </ProtectedRoute>
+
+                    }
+
+                />
+
+
+
+                <Route
+
+                    path="/admin/contests/edit/:id"
+
+                    element={
+
+                        <ProtectedRoute>
+
+                            <EditContest />
+
+                        </ProtectedRoute>
+
+                    }
+
+                />
+
+
+
+                <Route
+
+                    path="/profile"
+
+                    element={<Profile />}
+
+                />
+
+
+
+            </Route>
+        </>
+    )
+);
+
+export default router;

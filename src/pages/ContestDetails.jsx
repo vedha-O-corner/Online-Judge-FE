@@ -1,6 +1,9 @@
 import { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
-
+import {
+    useNavigate,
+    useParams,
+    useBlocker
+} from "react-router-dom";
 import "./ContestDetails.css";
 
 import { getContestById } from "../services/contestService";
@@ -18,9 +21,75 @@ const ContestDetails = () => {
 
     const [loading, setLoading] = useState(true);
 
+    const isContestLive =
+        contest &&
+        new Date() >= new Date(contest.startTime) &&
+        new Date() <= new Date(contest.endTime);
+
+    const blocker = useBlocker(!!isContestLive);
+
+    useEffect(() => {
+        if (!isContestLive) return;
+        if (blocker.state === "blocked") {
+            if (window.confirm("Leave this page?")) {
+                blocker.proceed();
+            } else {
+                blocker.reset();
+            }
+        }
+    }, [blocker]);
+
+    useEffect(() => {
+        if (!isContestLive) return;
+        window.history.pushState(null, "", window.location.href);
+
+        const handlePopState = () => {
+
+            if (window.confirm("Leave this page? Your current progress will be save and cannot resume!")) {
+                window.removeEventListener("popstate", handlePopState);
+                window.history.back();
+            } else {
+                window.history.pushState(null, "", window.location.href);
+            }
+
+        };
+
+        window.addEventListener("popstate", handlePopState);
+
+        return () => {
+            window.removeEventListener("popstate", handlePopState);
+        };
+
+    }, []);
+
     useEffect(() => {
 
         fetchContest();
+
+    }, []);
+
+    useEffect(() => {
+        if (!isContestLive) return;
+        const handleBeforeUnload = (e) => {
+
+            e.preventDefault();
+            e.returnValue = "";
+
+        };
+
+        window.addEventListener(
+            "beforeunload",
+            handleBeforeUnload
+        );
+
+        return () => {
+
+            window.removeEventListener(
+                "beforeunload",
+                handleBeforeUnload
+            );
+
+        };
 
     }, []);
 
@@ -164,9 +233,7 @@ const ContestDetails = () => {
                                         key={problem._id}
                                         className="problem-card hover-card"
                                         onClick={() =>
-                                            navigate(
-                                                `/problems/${problem._id}`
-                                            )
+                                            navigate(`/contests/${contest._id}/problems/${problem._id}`)
                                         }
                                     >
 

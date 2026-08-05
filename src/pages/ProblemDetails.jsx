@@ -17,7 +17,7 @@ import AIReviewCard from "../components/AIReviewCard";
 
 const ProblemDetails = () => {
 
-    const { id } = useParams();
+    const { id, contestId } = useParams();
 
     const [problem, setProblem] = useState(null);
 
@@ -80,6 +80,8 @@ int main(){
                 language,
 
                 code,
+
+                contest: contestId,
 
             });
 

@@ -27,6 +27,8 @@ const Leaderboard = () => {
 
             setLeaderboard(data.leaderboard || []);
 
+            console.log(data.leaderboard);
+
         }
 
         catch (error) {

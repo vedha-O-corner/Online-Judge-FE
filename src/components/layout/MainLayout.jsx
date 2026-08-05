@@ -9,7 +9,8 @@ const MainLayout = () => {
     const location = useLocation();
 
     const hideSidebar =
-        location.pathname.startsWith("/problems/");
+        location.pathname.startsWith("/problems/") ||
+        location.pathname.startsWith("/contests/");
 
     return (
 

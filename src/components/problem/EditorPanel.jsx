@@ -77,9 +77,42 @@ const EditorPanel = ({
 
                 <select
                     value={language}
-                    onChange={(e) =>
-                        setLanguage(e.target.value)
-                    }
+                    onChange={(e) => {
+                        const lang = e.target.value;
+
+                        setLanguage(lang);
+
+                        if (lang === "cpp") {
+                            setCode(`#include <iostream>
+using namespace std;
+
+int main() {
+    //write your code here
+    return 0;
+}`);
+                        }
+
+                        else if (lang === "java") {
+                            setCode(`import java.util.*;
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        // Write your code here
+
+        sc.close();
+    }
+
+}`);
+                        }
+
+                        else if (lang === "python") {
+                            setCode(`# Write your code here`);
+                        }
+                    }}
                 >
 
                     <option value="cpp">

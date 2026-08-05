@@ -1,18 +1,18 @@
-import api from "./api";
+// import api from "./api";
 
-export const getLeaderboard = async (contestId) => {
+// export const getLeaderboard = async (contestId) => {
 
-    const token = localStorage.getItem("token");
+//     const token = localStorage.getItem("token");
 
-    const response = await api.get(
-        `/contests/${contestId}/leaderboard`,
-        {
-            headers: {
-                Authorization: `Bearer ${token}`,
-            },
-        }
-    );
+//     const response = await api.get(
+//         `/contests/${contestId}/leaderboard`,
+//         {
+//             headers: {
+//                 Authorization: `Bearer ${token}`,
+//             },
+//         }
+//     );
 
-    return response.data;
+//     return response.data;
 
-};
+// };
