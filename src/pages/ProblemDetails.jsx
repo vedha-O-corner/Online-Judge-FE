@@ -169,6 +169,8 @@ int main(){
 
                 problemDescription: problem.description,
 
+                contest: contestId||null,
+
             });
 
             setReview(data);
