@@ -57,7 +57,7 @@ const Leaderboard = () => {
 
             <h1>
 
-                Leaderboard
+                Leaderboard - Ranking is purely based on number of questions solved
 
             </h1>
 

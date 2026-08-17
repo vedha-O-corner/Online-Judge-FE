@@ -32,7 +32,7 @@ const Sidebar = () => {
 
                 <div className="logo">
 
-                    OJ
+                    Master Code
 
                 </div>
 
